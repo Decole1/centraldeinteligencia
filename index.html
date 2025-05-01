@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard de Ocorrências | Decole</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"/>
+  <style>
+    body { background-color: #121212; color: #f0f0f0; font-family: sans-serif; }
+    .container { padding: 20px; }
+    #logo { max-height: 70px; margin: 20px auto; display: block; }
+    h2 { color: #FFA726; margin-bottom: 40px; text-align: center; }
+    canvas { background-color: #fff; border-radius: 10px; padding: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.3); }
+    .chart-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+    .chart-box { flex: 1 1 400px; max-width: 600px; }
+    table.dataTable td, table.dataTable th { color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" id="logo" alt="Logo Decole" />
+    <h2>Dashboard de Ocorrências</h2>
+
+    <div class="chart-grid">
+      <div class="chart-box"><canvas id="graficoStatus"></canvas></div>
+      <div class="chart-box"><canvas id="graficoEmpresas"></canvas></div>
+      <div class="chart-box"><canvas id="graficoDescricoes"></canvas></div>
+    </div>
+
+    <hr class="my-5">
+
+    <h4>Tabela Geral de Atendimentos</h4>
+    <div class="table-responsive">
+      <table id="tabelaRelatorio" class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Empresa</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Prioridade</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
