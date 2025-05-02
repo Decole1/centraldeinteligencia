@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard de Ocorrências | Decole</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <style>
+    body { background-color: #0a192f; color: #fff; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+    .logo { max-height: 220px; display: block; margin: 40px auto 20px; }
+    h2 { text-align: center; color: #FFA726; margin-bottom: 20px; font-size: 32px; }
+    h5 { color: #fff; margin-bottom: 12px; text-align: center; }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      padding: 10px 40px 20px;
+      align-items: start;
+    }
+    canvas {
+      background-color: #112240;
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: inset 0 -3px 10px rgba(0,0,0,0.5), 0 0 12px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease;
+    }
+    canvas:hover {
+      cursor: pointer;
+      transform: scale(1.02);
+    }
+    #statusTableWrapper {
+      margin: 40px auto;
+      width: 90%;
+    }
+    table {
+      background-color: #112240;
+      color: #fff;
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #294a6f;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th { background-color: #1e2f45; }
+  </style>
+</head>
+<body>
+  <img src="logo.png" class="logo" alt="Logo Decole"/>
+  <h2>Dashboard de Ocorrências</h2>
+
+  <div style="
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+  ">
+    <div style='
+      background-color: #1e88e5;
+      padding: 16px 24px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(30,136,229,0.4);
+    '>
+      <span>📅 Início:</span> <strong>12/03/2024</strong>
+    </div>
+    <div style='
+      background-color: #43a047;
+      padding: 16px 24px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(67,160,71,0.4);
+    '>
+      <span>📅 Fim:</span> <strong>15/04/2024</strong>
+    </div>
+    <div style='
+      background-color: #fb8c00;
+      padding: 16px 24px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(251,140,0,0.4);
+    '>
+      <span>🗂️ Total de Ocorrências:</span> <strong>204</strong>
+    </div>
+  </div>
+
+
+  
+
+  <div class="dashboard-grid">
+    <div>
+      <h5>Empresas com Mais Ocorrências</h5>
+      <canvas id="graficoEmpresas"></canvas>
+    </div>
+    <div>
+      <h5>Status das Ocorrências</h5>
+      <canvas id="graficoStatus" title="Clique aqui para ver detalhes"></canvas>
+    </div>
+    <div>
+      <h5>Solicitações Recorrentes</h5>
+      <canvas id="graficoDescricoes"></canvas>
+    </div>
+  </div>
+
+  <div id="statusTableWrapper">
+    <h5 id="statusTitle">Detalhes do Status</h5>
+    <table id="statusTable">
+      <thead>
+        <tr><th>Empresa</th><th>Descrição</th><th>Prioridade</th><th>Status</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
